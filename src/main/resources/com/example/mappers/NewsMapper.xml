@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mappers.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.example.model.News" >
+    <id column="goodsId" property="goodsid" jdbcType="INTEGER" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="spanSize" property="spansize" jdbcType="TINYINT" />
+    <result column="imageUrl" property="imageurl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    goodsId, text, spanSize, imageUrl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from news_demo
+    where goodsId = #{goodsid,jdbcType=INTEGER}
+  </select>
+    <select id="findAll" resultType="com.example.model.News">
+      select
+      <include refid="Base_Column_List" />
+      from news_demo
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from news_demo
+    where goodsId = #{goodsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.News" >
+    insert into news_demo (goodsId, text, spanSize, 
+      imageUrl)
+    values (#{goodsid,jdbcType=INTEGER}, #{text,jdbcType=VARCHAR}, #{spansize,jdbcType=TINYINT}, 
+      #{imageurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.model.News" >
+    insert into news_demo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsid != null" >
+        goodsId,
+      </if>
+      <if test="text != null" >
+        text,
+      </if>
+      <if test="spansize != null" >
+        spanSize,
+      </if>
+      <if test="imageurl != null" >
+        imageUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="text != null" >
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="spansize != null" >
+        #{spansize,jdbcType=TINYINT},
+      </if>
+      <if test="imageurl != null" >
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.News" >
+    update news_demo
+    <set >
+      <if test="text != null" >
+        text = #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="spansize != null" >
+        spanSize = #{spansize,jdbcType=TINYINT},
+      </if>
+      <if test="imageurl != null" >
+        imageUrl = #{imageurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where goodsId = #{goodsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.News" >
+    update news_demo
+    set text = #{text,jdbcType=VARCHAR},
+      spanSize = #{spansize,jdbcType=TINYINT},
+      imageUrl = #{imageurl,jdbcType=VARCHAR}
+    where goodsId = #{goodsid,jdbcType=INTEGER}
+  </update>
+</mapper>
