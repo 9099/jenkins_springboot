@@ -1,16 +1,6 @@
 package com.example.model;
 
 public class News {
-    public News() {
-    }
-
-    public News(Integer goodsid, String text, Byte spansize, String imageurl) {
-        this.goodsid = goodsid;
-        this.text = text;
-        this.spansize = spansize;
-        this.imageurl = imageurl;
-    }
-
     private Integer goodsid;
 
     private String text;

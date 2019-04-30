@@ -1,9 +1,6 @@
 package com.example.mappers;
 
 import com.example.model.News;
-import com.example.model.User;
-
-import java.util.List;
 
 public interface NewsMapper {
     int deleteByPrimaryKey(Integer goodsid);
@@ -17,6 +14,4 @@ public interface NewsMapper {
     int updateByPrimaryKeySelective(News record);
 
     int updateByPrimaryKey(News record);
-
-    List<News> findAll();
 }
