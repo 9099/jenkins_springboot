@@ -1,11 +1,23 @@
 package com.example.model;
 
+import java.util.List;
+
 public class Stu {
     private Integer id;
 
     private String name;
 
     private Integer cId;
+
+    private List<Book> books;
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 
     public Integer getId() {
         return id;

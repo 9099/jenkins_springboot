@@ -4,16 +4,17 @@
   <resultMap id="BaseResultMap" type="com.example.model.Clas" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="level" property="level" jdbcType="TINYINT" />
-    <collection property="students" resultMap="com.example.mappers.StuMapper.BaseResultMap"/>
+    <collection property="students"  resultMap="com.example.mappers.StuMapper.BaseResultMap"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, level,students
+    id, level
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from class
-    where id = #{id,jdbcType=INTEGER}
+    select  c.*,s.id sid,s.name,s.c_id,b.id bid,b.price,b.s_id
+    <!--<include refid="Base_Column_List" />-->
+    from class c , student s , book b
+    where c.id = s.c_id and b.s_id = s.id
+    and c.id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from class

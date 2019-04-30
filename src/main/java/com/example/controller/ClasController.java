@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import com.example.mappers.BookMapper;
+import com.example.model.Book;
 import com.example.model.Clas;
 import com.example.service.ClasService;
 import com.github.pagehelper.PageHelper;
@@ -24,6 +26,8 @@ public class ClasController {
     @Autowired
     private ClasService clasService;
 
+    @Autowired
+    private BookMapper bookMapper;
     //@ResponseBody
     //@RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     //public int addUser(User user) {
@@ -53,6 +57,12 @@ public class ClasController {
         return clasService.selectByPrimaryKey(id);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/some")
+    public Book findAllUser1() {
+
+        return bookMapper.selectByPrimaryKey(1);
+    }
     //@ResponseBody
     //@RequestMapping(value = "/neteasy")
     //public String findNetEasy() {
