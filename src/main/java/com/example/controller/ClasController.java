@@ -61,46 +61,86 @@ public class ClasController {
     @RequestMapping(value = "/some")
     public String findAllUser1() {
 
-        return "{\n"+
-            "\t\"code\": 0,\n"+
-            "\t\"message\":\"OK\",\n"+
-            "\t\"data\":[\n"+
-            "\t\t{\n"+
-            "\t\t\t\"id\":1,\n"+
-            "\t\t\t\"section\":\"title 1\",\n"+
-            "\t\t\t\"goods\" :[\n"+
-            "\t\t\t{\n"+
-            "\t\t\t\t\"goods_id\":3,\n"+
-            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\",\n"+
-            "\t\t\t\t\"goods_name\":\"brand1\"\n"+
-            "\t\t\t},\n"+
-            "\t\t\t{\n"+
-            "\t\t\t\t\"goods_id\":2,\n"+
-            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\",\n"+
-            "\t\t\t\t\"goods_name\":\"brand2\"\n"+
-            "\t\t\t}\n"+
-            "\t\t\t]\n"+
-            "\t\t\t\n"+
-            "\t\t},\n"+
-            "\t\t{\n"+
-            "\t\t\"id\":2,\n"+
-            "\t\t\t\"section\":\"title 2\",\n"+
-            "\t\t\t\"goods\" :[\n"+
-            "\t\t\t{\n"+
-            "\t\t\t\t\"goods_id\":1,\n"+
-            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\",\n"+
-            "\t\t\t\t\"goods_name\":\"brand111\"\n"+
-            "\t\t\t},\n"+
-            "\t\t\t{\n"+
-            "\t\t\t\t\"goods_id\":3,\n"+
-            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\",\n"+
-            "\t\t\t\t\"goods_name\":\"brand222\"\n"+
-            "\t\t\t}\n"+
-            "\t\t\t]\n"+
-            "\t\t}\n"+
-            "\t]\n"+
-            "\n"+
-            "}";
+        return "{\n" +
+                "\t\"code\": 0,\n" +
+                "\t\"message\":\"OK\",\n" +
+                "\t\"data\":[\n" +
+                "\t\t{\n" +
+                "\t\t\t\"id\":1,\n" +
+                "\t\t\t\"section\":\"监测\",\n" +
+                "\t\t\t\"goods\" :[\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性1\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况1\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":2,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性2\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况2\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性3\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况3\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性4\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况4\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性5\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况5\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性6\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况6\"\n" +
+                "\t\t\t}\n" +
+                "\t\t\t]\n" +
+                "\t\t\t\n" +
+                "\t\t},\n" +
+                "\t\t{\n" +
+                "\t\t\"id\":2,\n" +
+                "\t\t\t\"section\":\"使用情况\",\n" +
+                "\t\t\t\"goods\" :[\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性11\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况11\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":2,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性22\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况22\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性33\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况33\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性44\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况44\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性55\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况55\"\n" +
+                "\t\t\t},\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"goods_id\":3,\n" +
+                "\t\t\t\t\"goods_thumb\":\"属性66\",\n" +
+                "\t\t\t\t\"goods_name\":\"情况66\"\n" +
+                "\t\t\t}\n" +
+                "\t\t\t]\n" +
+                "\t\t}\n" +
+                "\t]\n" +
+                "\n" +
+                "}";
     }
     //@ResponseBody
     //@RequestMapping(value = "/neteasy")
