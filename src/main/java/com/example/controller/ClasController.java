@@ -59,9 +59,48 @@ public class ClasController {
 
     @ResponseBody
     @RequestMapping(value = "/some")
-    public Book findAllUser1() {
+    public String findAllUser1() {
 
-        return bookMapper.selectByPrimaryKey(1);
+        return "{\n" +
+            "\t\"code\": 0;\n" +
+            "\t\"message\":\"OK\",\n" +
+            "\t\"data\":[\n" +
+            "\t\t{\n" +
+            "\t\t\t\"id\":1,\n" +
+            "\t\t\t\"section\":\"title 1\",\n" +
+            "\t\t\t\"goods\" :[\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"goods_id\":3,\n" +
+            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\"\n" +
+            "\t\t\t\t\"goods_name\":\"brand1\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"goods_id\":2,\n" +
+            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\"\n" +
+            "\t\t\t\t\"goods_name\":\"brand2\"\n" +
+            "\t\t\t}\n" +
+            "\t\t\t]\n" +
+            "\t\t\t\n" +
+            "\t\t},\n" +
+            "\t\t{\n" +
+            "\t\t\"id\":2,\n" +
+            "\t\t\t\"section\":\"title 2\",\n" +
+            "\t\t\t\"goods\" :[\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"goods_id\":1,\n" +
+            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\"\n" +
+            "\t\t\t\t\"goods_name\":\"brand111\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"goods_id\":3,\n" +
+            "\t\t\t\t\"goods_thumb\":\"https://images2018.cnblogs.com/blog/989346/201804/989346-20180404134228443-2038832153.png\"\n" +
+            "\t\t\t\t\"goods_name\":\"brand222\"\n" +
+            "\t\t\t}\n" +
+            "\t\t\t]\n" +
+            "\t\t}\n" +
+            "\t]\n" +
+            "\n" +
+            "}";
     }
     //@ResponseBody
     //@RequestMapping(value = "/neteasy")
