@@ -61,86 +61,358 @@ public class ClasController {
     @RequestMapping(value = "/some")
     public String findAllUser1() {
 
-        return "{\n" +
-                "\t\"code\": 0,\n" +
-                "\t\"message\":\"OK\",\n" +
-                "\t\"data\":[\n" +
-                "\t\t{\n" +
-                "\t\t\t\"id\":1,\n" +
-                "\t\t\t\"section\":\"监测\",\n" +
-                "\t\t\t\"goods\" :[\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性1\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况1\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":2,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性2\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况2\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性3\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况3\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性4\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况4\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性5\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况5\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性6\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况6\"\n" +
-                "\t\t\t}\n" +
-                "\t\t\t]\n" +
-                "\t\t\t\n" +
-                "\t\t},\n" +
-                "\t\t{\n" +
-                "\t\t\"id\":2,\n" +
-                "\t\t\t\"section\":\"使用情况\",\n" +
-                "\t\t\t\"goods\" :[\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性11\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况11\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":2,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性22\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况22\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性33\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况33\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性44\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况44\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性55\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况55\"\n" +
-                "\t\t\t},\n" +
-                "\t\t\t{\n" +
-                "\t\t\t\t\"goods_id\":3,\n" +
-                "\t\t\t\t\"goods_thumb\":\"属性66\",\n" +
-                "\t\t\t\t\"goods_name\":\"情况66\"\n" +
-                "\t\t\t}\n" +
-                "\t\t\t]\n" +
-                "\t\t}\n" +
-                "\t]\n" +
-                "\n" +
-                "}";
+        return "{\n"+
+            "    \"code\": 0,\n"+
+            "    \"message\": \"OK\",\n"+
+            "    \"data\": [\n"+
+            "        {\n"+
+            "            \"id\": 1,\n"+
+            "            \"section\": \"暂无监测\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \" \",\n"+
+            "                    \"goods_name\": \" \"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        }\n"+
+            "    ]\n"+
+            "}";
+    }
+    
+      @ResponseBody
+    @RequestMapping(value = "/some1")
+    public String findAllUser1() {
+
+        return "{\n"+
+            "    \"code\": 0,\n"+
+            "    \"message\": \"OK\",\n"+
+            "    \"data\": [\n"+
+            "        {\n"+
+            "            \"id\": 1,\n"+
+            "            \"section\": \"监测\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"设备名称\",\n"+
+            "                    \"goods_name\": \"枕巾\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"设备编号\",\n"+
+            "                    \"goods_name\": \"6f599bb8ec0eac83a66322b6170c4ebd\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"规格\",\n"+
+            "                    \"goods_name\": \"80*24\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"材质\",\n"+
+            "                    \"goods_name\": \"棉\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"颜色\",\n"+
+            "                    \"goods_name\": \"乳白色\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"生产日期\",\n"+
+            "                    \"goods_name\": \"2018-3-5\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"使用情况\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"耐久度\",\n"+
+            "                    \"goods_name\": \"良好\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"使用次数\",\n"+
+            "                    \"goods_name\": \"3\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"清洗地点\",\n"+
+            "                    \"goods_name\": \"德勤\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"清洗时间\",\n"+
+            "                    \"goods_name\": \"2019-4-29\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"检验人\",\n"+
+            "                    \"goods_name\": \"马东明\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"用户反馈\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"是否异味\",\n"+
+            "                    \"goods_name\": \"否\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"用户投诉\",\n"+
+            "                    \"goods_name\": \"无\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        }\n"+
+            "    ]\n"+
+            "}";
+    }
+    
+      @ResponseBody
+    @RequestMapping(value = "/some2")
+    public String findAllUser1() {
+
+        return "{\n"+
+            "    \"code\": 0,\n"+
+            "    \"message\": \"OK\",\n"+
+            "    \"data\": [\n"+
+            "        {\n"+
+            "            \"id\": 1,\n"+
+            "            \"section\": \"监测\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"设备名称\",\n"+
+            "                    \"goods_name\": \"床单\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"设备编号\",\n"+
+            "                    \"goods_name\": \"cf7d7bcb6371cf31de53c958d6c4a2f6\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"规格\",\n"+
+            "                    \"goods_name\": \"200*200\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"材质\",\n"+
+            "                    \"goods_name\": \"棉\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"颜色\",\n"+
+            "                    \"goods_name\": \"乳白色\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"生产日期\",\n"+
+            "                    \"goods_name\": \"2018-3-7\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"生产厂商\",\n"+
+            "                    \"goods_name\": \"济南天亚\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"材料来源\",\n"+
+            "                    \"goods_name\": \"济南\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"使用情况\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"耐久度\",\n"+
+            "                    \"goods_name\": \"良好\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"使用次数\",\n"+
+            "                    \"goods_name\": \"4\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"清洗地点\",\n"+
+            "                    \"goods_name\": \"德勤\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"清洗时间\",\n"+
+            "                    \"goods_name\": \"2019-4-5\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"检验人\",\n"+
+            "                    \"goods_name\": \"马东明\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"用户反馈\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"是否异味\",\n"+
+            "                    \"goods_name\": \"否\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"用户投诉\",\n"+
+            "                    \"goods_name\": \"无\"\n"+
+            "                },{\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"清洗时间\",\n"+
+            "                    \"goods_name\": \"2019-4-29\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"检验人\",\n"+
+            "                    \"goods_name\": \"罗明\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"材料来源\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"棉\",\n"+
+            "                    \"goods_name\": \"济南德利\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"组装\",\n"+
+            "                    \"goods_name\": \"济南\"\n"+
+            "                },{\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"纺织材料\",\n"+
+            "                    \"goods_name\": \"南宁希尔\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"合格检验人\",\n"+
+            "                    \"goods_name\": \"董细明\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        }\n"+
+            "    ]\n"+
+            "}";
+    }
+    
+      @ResponseBody
+    @RequestMapping(value = "/some3")
+    public String findAllUser1() {
+
+        return "{\n"+
+            "    \"code\": 0,\n"+
+            "    \"message\": \"OK\",\n"+
+            "    \"data\": [\n"+
+            "        {\n"+
+            "            \"id\": 1,\n"+
+            "            \"section\": \"监测\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"设备名称\",\n"+
+            "                    \"goods_name\": \"呼吸灯\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"设备编号\",\n"+
+            "                    \"goods_name\": \"1bff52510ddf2494f97a75628dc7c9e2\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"规格\",\n"+
+            "                    \"goods_name\": \"20*20\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"颜色\",\n"+
+            "                    \"goods_name\": \"浅灰色\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"生产日期\",\n"+
+            "                    \"goods_name\": \"2018-3-7\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"生产厂商\",\n"+
+            "                    \"goods_name\": \"义乌罗马奥\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"使用情况\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"耐久度\",\n"+
+            "                    \"goods_name\": \"良好\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"检验人\",\n"+
+            "                    \"goods_name\": \"谢宁\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"用户反馈\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"用户投诉\",\n"+
+            "                    \"goods_name\": \"无\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        },\n"+
+            "        {\n"+
+            "            \"id\": 2,\n"+
+            "            \"section\": \"设备监控\",\n"+
+            "            \"goods\": [\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"灯泡\",\n"+
+            "                    \"goods_name\": \"良好\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 2,\n"+
+            "                    \"goods_thumb\": \"光线质量\",\n"+
+            "                    \"goods_name\": \"弱\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"使用次数\",\n"+
+            "                    \"goods_name\": \"94\"\n"+
+            "                },\n"+
+            "                {\n"+
+            "                    \"goods_id\": 3,\n"+
+            "                    \"goods_thumb\": \"合格检验人\",\n"+
+            "                    \"goods_name\": \"孟谢雨\"\n"+
+            "                }\n"+
+            "            ]\n"+
+            "        }\n"+
+            "    ]\n"+
+            "}";
     }
     //@ResponseBody
     //@RequestMapping(value = "/neteasy")
