@@ -82,7 +82,7 @@ public class ClasController {
     
       @ResponseBody
     @RequestMapping(value = "/some1")
-    public String findAllUser1() {
+    public String findAllUser2() {
 
         return "{\n"+
             "    \"code\": 0,\n"+
@@ -177,7 +177,7 @@ public class ClasController {
     
       @ResponseBody
     @RequestMapping(value = "/some2")
-    public String findAllUser1() {
+    public String findAllUser3() {
 
         return "{\n"+
             "    \"code\": 0,\n"+
@@ -316,7 +316,7 @@ public class ClasController {
     
       @ResponseBody
     @RequestMapping(value = "/some3")
-    public String findAllUser1() {
+    public String findAllUser4() {
 
         return "{\n"+
             "    \"code\": 0,\n"+
