@@ -25,6 +25,7 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+
     //@ResponseBody
     //@RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     //public int addUser(News news) {
