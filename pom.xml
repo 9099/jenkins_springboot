@@ -9,15 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>mybatis4</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>jenkins-springboot</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>mybatis4</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <docker.image.prefix>caihong-jenkins-test</docker.image.prefix>
+        <docker.image.prefix>registry.cn-hangzhou.aliyuncs.com/caihong/jenkins_docker</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -70,33 +70,33 @@
 
 
         <dependency>
-        <groupId>com.github.pagehelper</groupId>
-        <artifactId>pagehelper</artifactId>
-        <version>4.1.0</version>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.0</version>
         </dependency>
 
         <dependency>
-        <groupId>com.github.miemiedev</groupId>
-        <artifactId>mybatis-paginator</artifactId>
-        <version>1.2.17</version>
+            <groupId>com.github.miemiedev</groupId>
+            <artifactId>mybatis-paginator</artifactId>
+            <version>1.2.17</version>
         </dependency>
 
         <dependency>
-        <groupId>com.github.jsqlparser</groupId>
-        <artifactId>jsqlparser</artifactId>
-        <version>0.9.4</version>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>0.9.4</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.github.pagehelper</groupId>-->
-            <!--<artifactId>pagehelper</artifactId>-->
-            <!--<version>5.1.2</version>-->
+        <!--<groupId>com.github.pagehelper</groupId>-->
+        <!--<artifactId>pagehelper</artifactId>-->
+        <!--<version>5.1.2</version>-->
         <!--</dependency>-->
 
 
         <!--<dependency>-->
-            <!--<groupId>com.github.pagehelper</groupId>-->
-            <!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->
-            <!--<version>1.2.3</version>-->
+        <!--<groupId>com.github.pagehelper</groupId>-->
+        <!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->
+        <!--<version>1.2.3</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
@@ -104,9 +104,9 @@
         <!--<artifactId>pagehelper-spring-boot-autoconfigure</artifactId>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-aop</artifactId>-->
-            <!--<version>5.1.3.RELEASE</version>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-aop</artifactId>-->
+        <!--<version>5.1.3.RELEASE</version>-->
         <!--</dependency>-->
     </dependencies>
 
@@ -146,11 +146,43 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
-
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <image>${docker.image.prefix}:${project.version}</image>
+                            <newName>
+                                ${docker.image.prefix}:${project.version}
+                            </newName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>push-image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>
+                                ${docker.image.prefix}:${project.version}
+                            </imageName>
+                        </configuration>
+                    </execution>
+                </executions>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-<!--                    <imageName>${project.artifactId}</imageName>-->
-
+                    <imageName>${docker.image.prefix}:${project.version}</imageName>
+<!--                    <imageName>registry.cn-hangzhou.aliyuncs.com/caihong/jenkins_docker:${project.version}</imageName>-->
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                         <imageTag>latest</imageTag>
@@ -167,27 +199,24 @@
                     </resources>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-<!--                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
+                        <!--                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
                     </buildArgs>
+                                        <serverId>my-docker-registry</serverId>
                 </configuration>
+
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <version>1.0.0</version>-->
-<!--                <configuration>-->
-<!--                    <imageName>mavendemo</imageName>-->
-<!--                    <dockerDirectory>${basedir}/docker</dockerDirectory> &lt;!&ndash; 指定 Dockerfile 路径&ndash;&gt;-->
-<!--                    &lt;!&ndash; 这里是复制 jar 包到 docker 容器指定目录配置，也可以写到 Docokerfile 中 &ndash;&gt;-->
-<!--                    <resources>-->
-<!--                        <resource>-->
-<!--                            <targetPath>/</targetPath>-->
-<!--                            <directory>${project.build.directory}</directory>-->
-<!--                            <include>${project.build.finalName}.jar</include>-->
-<!--                        </resource>-->
-<!--                    </resources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--      放在 setting.xml,在宿主机上登录也可以
+             <servers>
+                                <server>
+                                    <id>my-docker-registry</id>
+                                    <username>wanyang3</username>
+                                    <password>12345678</password>
+                                    <configuration>
+                                        <email>wanyang3@mail.com</email>
+                                    </configuration>
+                                </server>
+                            </servers>
+            -->
         </plugins>
     </build>
 
