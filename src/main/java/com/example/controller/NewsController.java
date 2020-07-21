@@ -40,6 +40,12 @@ public class NewsController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/test")
+    public Object test() {
+        return "newsService.findOne()";
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/pageHelper/{pageNum}/{pageSize}")
     public PageInfo<News> findAllUser(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
